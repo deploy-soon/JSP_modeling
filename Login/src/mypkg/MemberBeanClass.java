@@ -1,7 +1,6 @@
 package mypkg;
 
-// control user age
-public class MyJavaBeanClass {
+public class MemberBeanClass {
 	private String username;
 	private String password;
 	private String name;
@@ -38,6 +37,5 @@ public class MyJavaBeanClass {
 	public void setAge(int age) {
 		this.age = age;
 	}
-
 
 }

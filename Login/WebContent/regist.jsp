@@ -1,12 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
-
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -65,15 +65,22 @@ span.psw {
     }
 }
 </style>
-<title>Login Module</title>
+<title>Registration</title>
 </head>
 <body>
-	<a href="./login.html">LOGIN</a><br>
-	<a href="./regist.jsp">REGISTRATION</a><br>
-	<a href="./test_call_get.jsp">GET METHOD</a><br>
-	<a href="./test_input_name.jsp">CONNECT SERVLET</a><br>
-	<a href="./use_bean.jsp">GET JavaBeans</a><br>
-	<a href="./user_bean2.jsp">Use action tags</a><br>
-	
+	<h1>REGISTRATION</h1>
+	<form action="reg_member_proc.jsp" method="post">
+		<label for="username"><b>Username</b></label>
+		<input type="text" name="username" required autofocus maxlength="30"><br>
+		<label for="password"><b>Password</b></label>
+		<input type="text" name="password" required autofocus maxlength="30"><br>
+		<label for="name"><b>Name</b></label>
+		<input type="text" name="name" required autofocus maxlength="30"><br>
+		<label for="age"><b>Age</b></label>
+		<input type="number" name="age" required autofocus maxlength="30"><br>
+		<button type="submit">SUBMIT</button><br>
+		<!-- <input type="reset" value="RESET"><br> -->
+		
+	</form>
 </body>
 </html>
