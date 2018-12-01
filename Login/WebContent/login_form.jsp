@@ -1,11 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
-
 input[type=text], input[type=password] {
     width: 100%;
     padding: 12px 20px;
@@ -65,16 +65,22 @@ span.psw {
     }
 }
 </style>
-<title>Login Module</title>
+<title>Login PAGE</title>
 </head>
 <body>
-	<a href="./login.html">LOGIN</a><br>
-	<a href="./regist.jsp">REGISTRATION</a><br>
-	<a href="./test_call_get.jsp">GET METHOD</a><br>
-	<a href="./test_input_name.jsp">CONNECT SERVLET</a><br>
-	<a href="./use_bean.jsp">GET JavaBeans</a><br>
-	<a href="./user_bean2.jsp">Use action tags</a><br>
-	<a href="./login_form.jsp">LOGIN SESSION</a><br>
+	<!-- Before launch server login first -->
+	<h1>Login</h1>
+	<form action="login_form_proc.jsp" method="post">
+		<label for="uname"><b>Username</b></label>
+	    <input type="text" placeholder="Enter Username" maxlength="50" name="username" required autofocus>
 	
+	    <label for="psw"><b>Password</b></label>
+	    <input type="password" placeholder="Enter Password" name="password" required autofocus>
+	    <button type="submit">Login</button>
+    </form>
+    
+    <!-- <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label> -->
 </body>
 </html>
