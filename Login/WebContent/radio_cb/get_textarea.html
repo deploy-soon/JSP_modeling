@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>INPUT TEXT</title>
+<script>
+	function handle_text(){
+		text = document.getElementsById("desc");
+		if(text==null){
+			text.focus();
+			return false;
+		}
+		console.log(text.value);
+		return true;
+	}
+</script>
+</head>
+<body>
+<form action ="textarea_jsp.jsp" method = "POST" onsubmit="return handle_text()">
+<textarea name="desc" id="desc" cols="50" rows="10">
+</textarea>
+<input type="submit" value="submit">
+
+</form>
+
+</body>
+</html>

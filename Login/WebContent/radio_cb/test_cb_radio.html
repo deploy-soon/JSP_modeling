@@ -3,34 +3,53 @@
 <head>
 <meta charset="EUC-KR">
 <title>Check Box</title>
+<script type="text/javascript">
+	function my_func() {
+		console.log("test");
+		var addr_checkbox = document.getElementsByName("hobby");
+		if (addr_checkbox == null) {
+			alert("please check hobby");
+			return false;
+		}
+		var addr_radio = document.getElementsByName("gender");
+		if(addr_radio == null) {
+			alert("please check gender!");
+			return false;
+		}
+		
+		var length_checkbox = addr_checkbox.length;
+		for(var i = 0; i < length_checkbox ; i++){
+			console.log(addr_checkbox[i].value, addr_checkbox[i].checked);
+		}
+		return true;
+	}
+</script>
 </head>
 <body>
-
-	<table>
-		<tr>
-			<td>hobby ~</td>
-			<td>
-				<input type="checkbox" name="hobby" value="soccer" checked>soccer</input><br>
-				<input type="checkbox" name="hobby" value="baseball">baseball</input><br>
-				<input type="checkbox" name="hobby" value="basketball">basketball</input><br>
-				<input type="checkbox" name="hobby" value="hockey">hockey</input><br>
-			</td>
-		</tr>
-		<tr>
-			<td>gender ~</td>
-			<td>
-				<input type="radio" name="gender" value="male" checked>M</input><br>
-				<input type="radio" name="gender" value="female">F</input><br>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<input type="submit" value="submit">
-			</td>
-			<td>
-				<input type="reset" value="reset">
-			</td>
-		</tr>
-	</table>
+	<form action="test_cb_radio_proc.jsp" method="POST" onsubmit="return my_func()">
+		<table>
+			<tr>
+				<td>hobby ~</td>
+				<td>
+					<input type="checkbox" name="hobby" value="soccer">soccer</input><br>
+					<input type="checkbox" name="hobby" value="baseball">baseball</input><br>
+					<input type="checkbox" name="hobby" value="basketball">basketball</input><br>
+					<input type="checkbox" name="hobby" value="hockey">hockey</input><br>
+				</td>
+			</tr>
+			<tr>
+				<td>gender ~</td>
+				<td>
+					<input type="radio" name="gender" value="male" checked>M</input><br>
+					<input type="radio" name="gender" value="female">F</input><br>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="submit">
+				</td>
+			</tr>
+		</table>
+	</form>
 </body>
 </html>
