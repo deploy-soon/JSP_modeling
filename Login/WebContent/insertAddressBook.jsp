@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ page import="mydb.beans.AddressBookDAO" %>
+<%!
+	AddressBookDAO refAddressBookDAO = null;
+	int maxNum = 0;
+%>
+<%
+	// because AddressBookDAO.getInstance is static
+	refAddressBookDAO = AddressBookDAO.getInstance();
+	maxNum = refAddressBookDAO.getMaxNum();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +21,7 @@
 	<table>
 		<tr>
 		<td> num :</td>
-		<td><input type="number" id="num" name="num" required readonly></td>
+		<td><input type="number" id="num" name="num" value="<%=maxNum%>" required readonly></td>
 		</tr>
 		<tr>
 		<td> name :</td>
@@ -31,6 +41,8 @@
 		</tr>
 	</table>
 </form>
+
+<a href="listAddressBook.jsp">get current list</a>
 
 </body>
 </html>
