@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE 
+mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dev">
+	<select 
+		id="selectOne" 
+		resultType="guestbook.bean.GuestBookBean"
+		parameterType="Integer">
+		select * from guest_book where num=#{num}
+	</select>
+	
+	<insert 
+	    id="insertGuestBook" 
+	    parameterType="guestbook.bean.GuestBookBean">
+		insert into
+		guest_book(NUM, WRITER, TITLE, CONTENTS, REGIST_DATE)
+		values
+		(#{num},#{writer},#{title},#{contents},#{regist_date})
+	</insert>
+
+	<select id="getCount" resultType="Integer">
+		select count(*) from guest_book
+	</select>
+
+	<select id="getMaxNum" resultType="Integer">
+		select nvl(max(num+1),1) from guest_book
+	</select>
+	<select 
+	id="selectAll" 
+	resultType="guestbook.bean.GuestBookBean">
+		select * from guest_book
+	</select>
+</mapper>
+
+
