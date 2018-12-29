@@ -38,6 +38,14 @@ tr:nth-child(even) {
 		alert("get guest list");
 		document.location.href = "insertGuestBook.jsp";
 	}
+	function del_submit(num){
+		var result = confirm("Do you want to delete this tuple?");
+		if(result == true){
+			document.location.href="deleteGuestBookProc.jsp?num="+num;
+		}else{
+			return false;
+		}
+	}
 </script>
 </head>
 <body>
@@ -48,6 +56,8 @@ tr:nth-child(even) {
     <th>TITLE</th>
     <th>CONTENTS</th>
     <th>REGIST DATE</th>
+    <th>UPDATE</th>
+    <th>DELETE</th>
   </tr>
 	
 	<%
@@ -57,11 +67,17 @@ tr:nth-child(even) {
 		}else{
 			for(int i=0;i<size;i++){
 				GuestBookBean temp = refBeanList.get(i);
+				int num = temp.getNum();
 				out.print("<tr><td>"+temp.getNum());
 				out.print("</td><td>"+temp.getWriter());
 				out.print("</td><td>"+temp.getTitle());
 				out.print("</td><td>"+temp.getContents());
-				out.print("</td><td>"+temp.getRegist_date()+"</td></tr>");
+				out.print("</td><td>"+temp.getRegist_date());
+				%>
+				</td><td><a href="updateGuestBook.jsp?num=<%=num%>"><%=num%></a></td>
+				<td><input type="button" value="OK" onclick="del_submit(<%=num%>);"></td></tr>
+				
+				<%
 			}
 		}
 	%>

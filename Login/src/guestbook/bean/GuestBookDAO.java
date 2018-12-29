@@ -87,5 +87,36 @@ public class GuestBookDAO {
 		refSqlSession.close();
 		return result;
 	}
+	
+	public GuestBookBean selectOne(int num) {
+		GuestBookBean result = null;
+		SqlSession refSqlSession = null;
+		refSqlSession = refSqlSessionFactory.openSession();
+		result = refSqlSession.selectOne("dev.selectOne", num);
+		refSqlSession.close();
+		return result;
+	}
+	
+	public int update(java.util.HashMap<String,Object> refHashMap) {
+		int result = 0;
+		SqlSession refSqlSession = refSqlSessionFactory.openSession();
+		result = refSqlSession.update("dev.updateGuestBook", refHashMap);
+		if(result == 1) {
+			refSqlSession.commit();
+		}
+		refSqlSession.close();
+		return result;
+	}
+	
+	public int delete(int num) {
+		int result = 0;
+		SqlSession refSqlSession = refSqlSessionFactory.openSession();
+		result = refSqlSession.update("dev.deleteGuest", num);
+		if(result == 1) {
+			refSqlSession.commit();
+		}
+		refSqlSession.close();
+		return result;
+	}
 }
 

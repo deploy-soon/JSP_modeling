@@ -28,11 +28,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMaxNum" resultType="Integer">
 		select nvl(max(num+1),1) from guest_book
 	</select>
+	
 	<select 
 	id="selectAll" 
 	resultType="guestbook.bean.GuestBookBean">
 		select * from guest_book
 	</select>
+	
+	<update
+	id="updateGuestBook" 
+	parameterType="java.util.HashMap">
+		update guest_book set writer=#{writer}, title=#{title}, contents=#{contents}, regist_date=#{regist_date} where num =#{num}
+	</update>
+	
+	<delete id="deleteGuest" 
+	        parameterType="Integer">
+		DELETE FROM guest_book
+		WHERE NUM = #{num}
+	</delete>
+
 </mapper>
 
 
